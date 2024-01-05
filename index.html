@@ -1,0 +1,102 @@
+<html>
+<head>
+<head>
+<style>
+.container{
+border:2px solid black;
+width:200px;
+padding:10px;
+margin:auto;
+margin-top:20px;
+background-color:pink;
+}
+button{
+color:black;
+height:45px;
+width:40px;
+font-size:30px;
+margin:3px;
+border:2px solid black;
+}
+#input{
+border:2px solid black;
+margin-bottom:10px;
+width:100%;
+height:40px;
+font-size:25px;
+direction:rtl;
+}
+</style>
+
+<body>
+<div class="container">
+<input id="input"type="text">
+  <button onclick="fun(1)">1</button>
+  <button onclick="fun(2)">2</button>
+  <button onclick="fun(3)">3</button>
+  <button onclick="operator('+')">+</button>
+  
+  <button onclick="fun(4)">4</button>
+  <button onclick="fun(5)">5</button>
+  <button onclick="fun(6)">6</button>
+  <button onclick="operator('-')">-</button>
+  
+  <button onclick="fun(7)">7</button>
+  <button onclick="fun(8)">8</button>
+  <button onclick="fun(9)">9</button>
+  <button onclick="operator('*')">*</button>
+  
+  <button >.</button>
+  <button onclick="fun(0)">0</button>
+  <button onclick="final()">=</button>
+  <button onclick="operator('/')">/</button>
+</div>
+</body>
+<script>
+var num=0;
+var fv='';
+var sv=0;
+var res=0;
+var op=' ';
+var txt=document.querySelector("#input");
+function fun(a)
+{
+txt.value+=a;
+}
+function operator(op)
+{
+	fv+=txt.value;
+	operator=op;
+	fv+=operator;
+	//console.log(fv);
+	txt.value='';
+}
+function final()
+{
+	sv = txt.value;
+
+var val1=parseInt(fv);
+var val2=parseInt(sv);
+if(operator=='+')
+{
+res=val1+val2;
+}
+if(operator=='-')
+{
+res=val1-val2;
+}
+if(operator=='*')
+{
+res=val1*val2;
+}
+if(operator=='/')
+{
+res=val1/val2;
+}
+txt.value=res;
+}
+
+
+</script>
+
+</html>
